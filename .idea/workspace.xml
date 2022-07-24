@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf8ca5c1-78d2-4a3a-a657-71cb724cb237" name="Changes" comment="2235 Add Two Integers">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/arthurmrt/easy/BuildArrayFromPermutation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/arthurmrt/easy/BuildArrayFromPermutationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cf8ca5c1-78d2-4a3a-a657-71cb724cb237" name="Changes" comment="1929. Concatenation of Array">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/arthurmrt/easy/ConcatenationOfArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/arthurmrt/easy/ConcatenationOfArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +22,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -58,7 +61,7 @@
       <recent name="com.arthurmrt.easy" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BuildArrayFromPermutationTest.buildArray2">
+  <component name="RunManager" selected="JUnit.ConcatenationOfArrayTest">
     <configuration name="BuildArrayFromPermutation" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.arthurmrt.easy.BuildArrayFromPermutation" />
       <module name="leetcode-solutions" />
@@ -68,21 +71,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AddTwoIntegersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="leetcode-solutions" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.arthurmrt.easy.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.arthurmrt.easy" />
-      <option name="MAIN_CLASS_NAME" value="com.arthurmrt.easy.AddTwoIntegersTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -134,6 +122,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ConcatenationOfArrayTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="leetcode-solutions" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.arthurmrt.easy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.arthurmrt.easy" />
+      <option name="MAIN_CLASS_NAME" value="com.arthurmrt.easy.ConcatenationOfArrayTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConcatenationOfArrayTest.getConcatenation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="leetcode-solutions" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.arthurmrt.easy.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.arthurmrt.easy" />
+      <option name="MAIN_CLASS_NAME" value="com.arthurmrt.easy.ConcatenationOfArrayTest" />
+      <option name="METHOD_NAME" value="getConcatenation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,10 +166,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ConcatenationOfArrayTest" />
+        <item itemvalue="JUnit.ConcatenationOfArrayTest.getConcatenation" />
         <item itemvalue="JUnit.BuildArrayFromPermutationTest.buildArray2" />
         <item itemvalue="JUnit.BuildArrayFromPermutationTest.buildArray1" />
         <item itemvalue="JUnit.BuildArrayFromPermutationTest" />
-        <item itemvalue="JUnit.AddTwoIntegersTest" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +190,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658674485750</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1920. Build Array from Permutation">
+      <created>1658677860349</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658677860349</updated>
+    </task>
+    <task id="LOCAL-00003" summary="1929. Concatenation of Array">
+      <created>1658686819963</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658686819963</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,24 +219,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1920. Build Array from Permutation" />
     <MESSAGE value="2235 Add Two Integers" />
-    <option name="LAST_COMMIT_MESSAGE" value="2235 Add Two Integers" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/arthurmrt/easy/BuildArrayFromPermutation.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/arthurmrt/easy/BuildArrayFromPermutation.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="1920. Build Array from Permutation" />
+    <MESSAGE value="1929. Concatenation of Array" />
+    <option name="LAST_COMMIT_MESSAGE" value="1929. Concatenation of Array" />
   </component>
 </project>
