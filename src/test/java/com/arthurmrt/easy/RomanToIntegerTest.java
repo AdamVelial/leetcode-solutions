@@ -1,7 +1,6 @@
 package com.arthurmrt.easy;
 
 import org.junit.jupiter.api.Test;
-import ru.arthurmt.leetcode.easy.RomanToInteger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
