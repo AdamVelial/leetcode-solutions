@@ -1,12 +1,12 @@
 package com.arthurmrt.easy;
 
-import java.util.Arrays;
+import java.util.PriorityQueue;
 
 // 703. Kth Largest Element in a Stream
 public class KthLargest {
 
-
-    private final int[] nums;
+    private PriorityQueue<Integer> priorityQueue;
+    private final int k;
 
     /**
      * Design a class to find the kth largest element in a stream.
@@ -21,52 +21,21 @@ public class KthLargest {
      * the kth largest element in the stream.
      */
     public KthLargest(int k, int[] nums) {
-        this.nums = createHeap(nums, k);
+        priorityQueue = new PriorityQueue<>();
+        this.k = k;
+        for (int i = 0; i < nums.length; i++) {
+            priorityQueue.add(nums[i]);
+        }
+        while (priorityQueue.size() > k)
+            priorityQueue.poll();
     }
 
     public int add(int val) {
-        if (val > nums[0]) {
-            nums[0] = val;
-            sink(nums, 1, nums.length);
-        }
-        return nums[0];
-    }
+        priorityQueue.add(val);
+        if (priorityQueue.size() > k)
+            priorityQueue.poll();
 
-    private int[] createHeap(int[] input, int k) {
-
-        Arrays.sort(input);
-        int[] array = new int[k];
-
-        int srcPos = input.length - k;
-        if (srcPos > 1) {
-            System.arraycopy(input, srcPos, array, 0, k);
-        }
-
-        int n = array.length;
-        for (int i = n / 2; i >= 1; i--)
-            sink(array, i, n);
-
-        return array;
-    }
-
-    private void sink(int[] array, int k, int n) {
-        while (2 * k <= n) {
-            int child = 2 * k;
-            if (child < n && less(array, child, child + 1)) child += 1;
-            if (!less(array, k, child)) break;
-            exchange(array, k, child);
-            k = child;
-        }
-    }
-
-    public boolean less(int[] array, int first, int second) {
-        return array[first - 1] > array[second - 1];
-    }
-
-    private void exchange(int[] array, int first, int second) {
-        int temp = array[first - 1];
-        array[first - 1] = array[second - 1];
-        array[second - 1] = temp;
+        return priorityQueue.peek();
     }
 }
 

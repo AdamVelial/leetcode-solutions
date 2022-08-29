@@ -25,11 +25,11 @@ class KthLargestTest {
     void test1() {
         KthLargest kthLargest = new KthLargest(3, new int[]{4, 5, 8, 2});
 
-        System.out.println(kthLargest.add(3));
-        System.out.println(kthLargest.add(5));
-        System.out.println(kthLargest.add(10));
-        System.out.println(kthLargest.add(9));
-        System.out.println(kthLargest.add(4));
+        assertEquals( 4, kthLargest.add(3));
+        assertEquals( 5, kthLargest.add(5));
+        assertEquals( 5, kthLargest.add(10));
+        assertEquals( 8, kthLargest.add(9));
+        assertEquals( 8, kthLargest.add(4));
     }
 
     @Test
@@ -38,10 +38,21 @@ class KthLargestTest {
 
         //expected [null,-3,-2,-2,0,4]
 
-        System.out.println(kthLargest.add(-3));
-        System.out.println(kthLargest.add(-2));
-        System.out.println(kthLargest.add(-4));
-        System.out.println(kthLargest.add(0));
-        System.out.println(kthLargest.add(4));
+        assertEquals( -3 ,kthLargest.add(-3));
+        assertEquals( -2 ,kthLargest.add(-2));
+        assertEquals( -2 ,kthLargest.add(-4));
+        assertEquals( 0 ,kthLargest.add(0));
+        assertEquals( 4 ,kthLargest.add(4));
+    }
+
+    @Test
+    void test3() {
+        KthLargest kthLargest = new KthLargest(1, new int[]{-2});
+
+        assertEquals( -2 ,kthLargest.add(-3));
+        assertEquals( 0 ,kthLargest.add(0));
+        assertEquals( 2 ,kthLargest.add(2));
+        assertEquals( 2 ,kthLargest.add(2));
+        assertEquals( 4 ,kthLargest.add(4));
     }
 }
