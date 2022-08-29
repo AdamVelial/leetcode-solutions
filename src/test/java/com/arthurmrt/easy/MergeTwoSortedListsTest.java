@@ -1,7 +1,6 @@
 package com.arthurmrt.easy;
 
-import com.arthurmrt.easy.merge_two_sorted_lists.ListNode;
-import com.arthurmrt.easy.merge_two_sorted_lists.MergeTwoSortedLists;
+import com.arthurmrt.ds.ListNode;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

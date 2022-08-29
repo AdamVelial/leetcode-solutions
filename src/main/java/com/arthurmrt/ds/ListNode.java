@@ -1,4 +1,4 @@
-package com.arthurmrt.easy.merge_two_sorted_lists;
+package com.arthurmrt.ds;
 
 public class ListNode {
     public int val;

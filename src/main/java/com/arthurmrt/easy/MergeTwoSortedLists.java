@@ -1,6 +1,6 @@
-package com.arthurmrt.easy.merge_two_sorted_lists;
+package com.arthurmrt.easy;
 
-import java.sql.PreparedStatement;
+import com.arthurmrt.ds.ListNode;
 
 //21. Merge Two Sorted Lists
 public class MergeTwoSortedLists {
