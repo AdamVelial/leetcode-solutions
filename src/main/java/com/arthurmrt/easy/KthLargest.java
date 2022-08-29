@@ -1,89 +1,73 @@
 package com.arthurmrt.easy;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.PriorityQueue;
 
 // 703. Kth Largest Element in a Stream
 public class KthLargest {
 
-    private List<Integer> list;
-    private int k;
+
+    private final int[] nums;
 
     /**
      * Design a class to find the kth largest element in a stream.
      * Note that it is the kth largest element in the sorted order,
      * not the kth distinct element.
-     *
+     * <p>
      * Implement KthLargest class:
-     *
+     * <p>
      * KthLargest(int k, int[] nums) Initializes the object with the integer k
      * and the stream of integers nums.
      * int add(int val) Appends the integer val to the stream and returns the element representing
      * the kth largest element in the stream.
      */
     public KthLargest(int k, int[] nums) {
-        this.list = copy(nums);
-        this.k = k;
+        this.nums = createHeap(nums, k);
     }
 
     public int add(int val) {
-        int size = list.size();
-        for (int i = 0; i <= size; i++) {
-            if (i == size) {
-                list.add(val);
-            }
-            if (list.get(i) > val) {
-                list.add(i, val);
-                break;
-            }
+        if (val > nums[0]) {
+            nums[0] = val;
+            sink(nums, 1, nums.length);
+        }
+        return nums[0];
+    }
+
+    private int[] createHeap(int[] input, int k) {
+
+        Arrays.sort(input);
+        int[] array = new int[k];
+
+        int srcPos = input.length - k;
+        if (srcPos > 1) {
+            System.arraycopy(input, srcPos, array, 0, k);
         }
 
-        int index = (list.size() - 1) - (k - 1);
-        return list.get(index);
+        int n = array.length;
+        for (int i = n / 2; i >= 1; i--)
+            sink(array, i, n);
+
+        return array;
     }
 
-    public List<Integer> copy(int[] nums) {
-        List<Integer> list = new ArrayList<>(nums.length);
-
-        Arrays.stream(nums)
-                .sorted()
-                .mapToObj(Integer::valueOf)
-                .forEachOrdered(list::add);
-
-        return list;
-    }
-
-    public static void main(String[] args) {
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
-
-        for (int i = 1; i < 100; i++) {
-            //ad(i, queue);
-            queue.add(i);
-        }
-
-
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-        System.out.println(queue.poll());
-
-    }
-
-    private static void ad(int val, PriorityQueue<Integer> queue) {
-        if (queue.size() != 3) {
-            queue.offer(val);
-        } else {
-            if (val > queue.peek()) {
-                queue.poll();
-                queue.offer(val);
-            }
+    private void sink(int[] array, int k, int n) {
+        while (2 * k <= n) {
+            int child = 2 * k;
+            if (child < n && less(array, child, child + 1)) child += 1;
+            if (!less(array, k, child)) break;
+            exchange(array, k, child);
+            k = child;
         }
     }
 
+    public boolean less(int[] array, int first, int second) {
+        return array[first - 1] > array[second - 1];
+    }
 
+    private void exchange(int[] array, int first, int second) {
+        int temp = array[first - 1];
+        array[first - 1] = array[second - 1];
+        array[second - 1] = temp;
+    }
 }
 
 /**

@@ -31,4 +31,17 @@ class KthLargestTest {
         System.out.println(kthLargest.add(9));
         System.out.println(kthLargest.add(4));
     }
+
+    @Test
+    void test2() {
+        KthLargest kthLargest = new KthLargest(1, new int[]{});
+
+        //expected [null,-3,-2,-2,0,4]
+
+        System.out.println(kthLargest.add(-3));
+        System.out.println(kthLargest.add(-2));
+        System.out.println(kthLargest.add(-4));
+        System.out.println(kthLargest.add(0));
+        System.out.println(kthLargest.add(4));
+    }
 }
