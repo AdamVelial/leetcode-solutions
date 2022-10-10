@@ -10,6 +10,8 @@ public class RotateImage {
         int low = 0;
         int high = n - 1;
 
+        // top=0,2|0,1 right=2,2|1,2 bottom=2,0|1,0
+
         // 1 итерация
         //
         // 1) меняем правый верхний на левый верхний
@@ -30,20 +32,20 @@ public class RotateImage {
 
         // 2 итерация
         //
-        // 1) меняем правый на верхний
+        // 1) меняем верхний на левый
+        int top2 = matrix[0][1];
+        matrix[0][1] = matrix[1][0];
+
+        // 2) меняем правый на верхний
         int right2 = matrix[1][2];
-        matrix[1][2] = matrix[0][1];
+        matrix[1][2] = top2;
 
-        // 2) меняем нижний на правый
-        int bottom2 = matrix[2][1];
-        matrix[2][1] = right2;
+        // 3) меняем нижний на правый
+        int bottom2 = matrix[1][0];
+        matrix[1][0] = right2;
 
-        // 3) меняем левый на нижний
-        int left2 = matrix[1][0];
-        matrix[1][0] = bottom2;
-
-        // 4) верхний на левый
-        matrix[0][1] = left2;
+        // 4) меняем левый на нижний
+        matrix[0][1] = bottom2;
 
 
         printMatrix(matrix);
