@@ -5,48 +5,31 @@ public class RotateImage {
     public void rotate(int[][] matrix) {
         printMatrix(matrix);
         System.out.println();
-        int n = matrix.length;
 
-        int low = 0;
-        int high = n - 1;
+        int left = 0;
+        int right = matrix.length - 1;
 
-        // top=0,2|0,1 right=2,2|1,2 bottom=2,0|1,0
+        int top = 0;
+        int bottom = matrix.length - 1;
 
-        // 1 итерация
-        //
-        // 1) меняем правый верхний на левый верхний
-        int top1 = matrix[0][2];
-        matrix[0][2] = matrix[0][0]; // matrix[0][2] | matrix[0][1]
+        while ( left < right ) {
+            // save top left
+            int topLeft = matrix[top][left]; // matrix[0][0]
 
-        // 2) меняем правый нижний на правый верхний
-        int right1 = matrix[2][2];
-        matrix[2][2] = top1; // matrix[2][2] | matrix[1][2]
+            //move bottom left to top left
+            matrix[top][left] = matrix[bottom][left]; // matrix[0][0] = matrix[2][0]
 
-        // 3) меняем левый нижний на правый нижний
-        int bottom1 = matrix[2][0];
-        matrix[2][0] = right1; // matrix[2][0] | matrix[2][1]
+            //move bottom right into bottom left
+            matrix[bottom][left] = matrix[bottom][right]; // matrix[2][0] = matrix[2][2]
 
-        // 4) меняем левый верхний на левый нижний
-        matrix[0][0] = bottom1; // matrix[0][0] | matrix[1][0]
+            //move top right into bottom right
+            matrix[bottom][right] = matrix[top][right]; // matrix[2][2] = matrix[0][2]
 
+            //move top left into top right
+            matrix[top][right] = topLeft; // matrix[0][0] = saved topLeft
 
-        // 2 итерация
-        //
-        // 1) меняем верхний на левый
-        int top2 = matrix[0][1];
-        matrix[0][1] = matrix[1][0];
-
-        // 2) меняем правый на верхний
-        int right2 = matrix[1][2];
-        matrix[1][2] = top2;
-
-        // 3) меняем нижний на правый
-        int bottom2 = matrix[1][0];
-        matrix[1][0] = right2;
-
-        // 4) меняем левый на нижний
-        matrix[0][1] = bottom2;
-
+            break;
+        }
 
         printMatrix(matrix);
     }
