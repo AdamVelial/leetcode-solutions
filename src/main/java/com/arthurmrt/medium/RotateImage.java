@@ -31,10 +31,9 @@ public class RotateImage {
                 //move top left into top right
                 matrix[top + i][right] = topLeft; // matrix[0][0] = saved topLeft
 
-                right -= 1;
-                left  += 1;
             }
-            break;
+            right -= 1;
+            left  += 1;
         }
 
         printMatrix(matrix);
