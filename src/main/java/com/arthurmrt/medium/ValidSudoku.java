@@ -37,17 +37,25 @@ public class ValidSudoku {
         }
 
 
-        for (int rowOffset = 0; rowOffset < board.length; rowOffset += cubeSize) {
+        for (int columnOffset = 0; columnOffset < board.length; columnOffset += cubeSize) {
 
-            System.out.println();
+            for (int rowOffset = 0; rowOffset < board.length; rowOffset += cubeSize) {
 
-            for (int row = 0 + rowOffset; row < cubeSize + rowOffset; row++) {
                 System.out.println();
-                for (int column = 0; column < cubeSize; column++) {
-                    System.out.printf("%s, ", board[row][column]);
-                }
-            }
 
+                int[] nums = new int[10];
+                for (int row = 0 + rowOffset; row < cubeSize + rowOffset; row++) {
+                    System.out.println();
+                    for (int column = 0 + columnOffset; column < cubeSize + columnOffset; column++) {
+                        int cell = board[row][column] - '0';
+                        if (10 > cell && cell > 0) {
+                            nums[cell] += 1;
+                            if (nums[cell] > 1) return false;
+                        }
+                    }
+                }
+
+            }
         }
 
         return true;
