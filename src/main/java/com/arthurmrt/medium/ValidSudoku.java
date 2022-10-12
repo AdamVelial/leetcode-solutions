@@ -11,32 +11,26 @@ public class ValidSudoku {
         int n = board.length;
 
         for (int i = 0; i < n; i++) {
-            int[] nums = new int[10];
+            int[] rowNums = new int[10];
+            int[] columnNums = new int[10];
 
             for (int j = 0; j < n; j++) {
-                int cell = board[i][j] - '0';
-                if (10 > cell && cell > 0) {
-                    nums[cell] += 1;
-                    if (nums[cell] > 1) return false;
+                int rowCell = board[i][j] - '0';
+                if (10 > rowCell && rowCell > 0) {
+                    rowNums[rowCell] += 1;
+                    if (rowNums[rowCell] > 1) return false;
                 }
+                int columnCell = board[j][i] - '0';
+                if (10 > columnCell && columnCell > 0) {
+                    columnNums[columnCell] += 1;
+                    if (columnNums[columnCell] > 1) return false;
+                }
+
             }
         }
 
-        //check columns
-        for (int i = 0; i < n; i++) {
-            int[] nums = new int[10];
 
-            for (int j = 0; j < n; j++) {
-                int cell = board[j][i] - '0';
-                if (10 > cell && cell > 0) {
-                    nums[cell] += 1;
-                    if (nums[cell] > 1) return false;
-                }
-            }
-
-        }
-
-
+        // 3 size matrix
         for (int columnOffset = 0; columnOffset < board.length; columnOffset += cubeSize) {
 
             for (int rowOffset = 0; rowOffset < board.length; rowOffset += cubeSize) {
