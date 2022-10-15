@@ -27,7 +27,6 @@ class ThreeSumTest {
         expected.add(Arrays.asList(-1, -1, 2));
         expected.add(Arrays.asList(-1, 0, 1));
 
-        System.out.println(Arrays.toString(num));
         List<List<Integer>> result = new ThreeSum().threeSum(num);
 
         Assertions.assertEquals(expected, result);
@@ -42,7 +41,12 @@ class ThreeSumTest {
      */
     @Test
     void example2() {
+        int[] num = new int[]{0 , 1, 1};
+        List<List<Integer>> expected = new ArrayList<>();
 
+        List<List<Integer>> result = new ThreeSum().threeSum(num);
+
+        Assertions.assertEquals(expected, result);
     }
 
     /**
@@ -54,6 +58,12 @@ class ThreeSumTest {
      */
     @Test
     void example3() {
+        int[] num = new int[]{0, 0, 0};
+        List<List<Integer>> expected = new ArrayList<>();
+        expected.add(Arrays.asList(0, 0, 0));
 
+        List<List<Integer>> result = new ThreeSum().threeSum(num);
+
+        Assertions.assertEquals(expected, result);
     }
 }
