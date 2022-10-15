@@ -13,7 +13,7 @@ public class ContainerWithMostWater {
             int leftHight = height[left];
             int rightHight = height[right];
 
-            int x = (right + 1) - (left + 1);
+            int x = right - left;
             int y = leftHight > rightHight ? rightHight : leftHight;
 
             int area = x * y;
