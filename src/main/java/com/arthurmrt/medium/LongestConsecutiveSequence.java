@@ -1,31 +1,31 @@
 package com.arthurmrt.medium;
 
-import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 // 128. Longest Consecutive Sequence
 public class LongestConsecutiveSequence {
     public int longestConsecutive(int[] nums) {
         if (nums.length == 0) return 0;
 
-        Arrays.sort(nums);
-
-        int maxConsecutive = 0;
-        int currentConsecutive = 1;
-        int before = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == before ) continue;
-
-            if (nums[i] == (before + 1)) {
-                currentConsecutive++;
-            } else {
-                maxConsecutive = Math.max(maxConsecutive, currentConsecutive);
-                currentConsecutive = 1;
-            }
-            before = nums[i];
+        Set<Integer> set = new HashSet<>();
+        for (int i : nums) {
+            set.add(i);
         }
 
-        maxConsecutive = Math.max(maxConsecutive, currentConsecutive);
+        int largestStreak = 0;
+        for (Integer num : set) {
+            if (!set.contains(num - 1)) {
+                int currentStreak = 1;
+                int number = num;
+                while (set.contains(++number)) {
+                    currentStreak++;
+                }
 
-        return maxConsecutive;
+                largestStreak = Math.max(currentStreak, largestStreak);
+            }
+        }
+
+        return largestStreak;
     }
 }
