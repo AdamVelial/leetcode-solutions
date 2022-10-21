@@ -37,4 +37,13 @@ class LongestConsecutiveSequenceTest {
 
         assertEquals(9, longestConsecutive);
     }
+
+    @Test
+    void example3() {
+        int[] nums = new int[]{1,2,0,1};
+
+        int longestConsecutive = new LongestConsecutiveSequence().longestConsecutive(nums);
+
+        assertEquals(3, longestConsecutive);
+    }
 }
