@@ -1,35 +1,27 @@
 package com.arthurmrt.easy;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 // 3. Longest Substring Without Repeating Characters
 public class LongestSubstringWithoutRepeatingCharacters {
     public int lengthOfLongestSubstring(String s) {
         if (s.length() < 2) return s.length();
 
-        Map<Character, Integer> map = new HashMap<>();
+        Set<Character> set = new HashSet<>();
 
         int longestSubstring = 0;
-        for (int r = 0, l = 0; r <= s.length(); r++) {
+        int r = 0;
+        int l = 0;
+        while (r < s.length()) {
 
-            if (r == s.length()) {
-                longestSubstring = Math.max(longestSubstring, s.substring(l, r).length());
-                break;
+            while (set.contains(s.charAt(r))) {
+                set.remove(s.charAt(l));
+                l++;
             }
-
-            if (map.containsKey(s.charAt(r))) {
-                System.out.println(s.substring(l, r));
-                longestSubstring = Math.max(longestSubstring, s.substring(l, r).length());
-                Integer startSub = map.get(s.charAt(r));
-                while (l <= startSub) {
-                    map.remove(s.charAt(l));
-                    l++;
-                }
-                map.put(s.charAt(r), r);
-            } else {
-                map.put(s.charAt(r), r);
-            }
+            longestSubstring = Math.max(longestSubstring, r - l + 1);
+            set.add(s.charAt(r));
+            r++;
         }
 
         return longestSubstring;
